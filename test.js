@@ -60,4 +60,12 @@ function sayMyName() {
   console.log(`my name is ${this.name}`);
 }
 
-sayMyName.call(person);
+// sayMyName.call(person);
+
+function Person(name) {
+  // this = {}
+  this.name = name;
+}
+
+const p1 = new person("amir");
+const p2 = new person("amirmohammad");
