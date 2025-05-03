@@ -16,6 +16,7 @@ function Outerr() {
     counter++;
     console.log(counter);
   }
-  Inner();
+  return Inner;
 }
-Outerr();
+const fn = Outerr();
+fn();
