@@ -23,24 +23,36 @@
 // fn();
 
 // function Curring
-function sum(a, b, c) {
-  return a + b + c;
-}
-console.log(sum(2, 3, 5));
+// function sum(a, b, c) {
+//   return a + b + c;
+// }
+// console.log(sum(2, 3, 5));
 
-function curry(fn) {
-  return function (a) {
-    return function (b) {
-      return function (c) {
-        return fn(a, b, c);
-      };
-    };
-  };
-}
-const currisum = curry(sum);
-console.log(currisum(2)(3)(5));
+// function curry(fn) {
+//   return function (a) {
+//     return function (b) {
+//       return function (c) {
+//         return fn(a, b, c);
+//       };
+//     };
+//   };
+// }
+// const currisum = curry(sum);
+// console.log(currisum(2)(3)(5));
 
-const add2 = currisum(2);
-const add3 = add2(3);
-const add5 = add3(5);
-console.log(add5);
+// const add2 = currisum(2);
+// const add3 = add2(3);
+// const add5 = add3(5);
+// console.log(add5);
+// this key word in js
+// function sayMyName(name) {
+//   console.log(`my name is ${name}`);
+// }
+const person = {
+  name: "amir",
+  sayMyName: function () {
+    console.log(`my name is ${this.name}`);
+  },
+};
+
+person.sayMyName();
