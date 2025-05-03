@@ -48,24 +48,43 @@
 // function sayMyName(name) {
 //   console.log(`my name is ${name}`);
 // }
-const person = {
-  name: "amir",
-  sayMyName: function () {
-    console.log(`my name is ${this.name}`);
-  },
+// const person = {
+//   name: "amir",
+//   sayMyName: function () {
+//     console.log(`my name is ${this.name}`);
+//   },
+// };
+
+// // person.sayMyName()
+// function sayMyName() {
+//   console.log(`my name is ${this.name}`);
+// }
+
+// // sayMyName.call(person);
+// globalThis.name = "superman";
+// function Person(name) {
+//   // this = {}
+//   this.name = name;
+// }
+
+// const p1 = new person("amir");
+// const p2 = new person("amirmohammad");
+
+// // console.log(p1.name, p2.name);
+
+// sayMyName();
+
+// prototype
+function Person(fname, lName) {
+  this.firstName = fname;
+  this.lastName = lName;
+}
+
+const Person1 = new Person("bruce", "wayne");
+const Person2 = new Person("big", "nigga");
+Person.prototype.getFullName = function () {
+  return this.firstName + " " + this.lastName;
 };
 
-// person.sayMyName()
-function sayMyName() {
-  console.log(`my name is ${this.name}`);
-}
-
-// sayMyName.call(person);
-
-function Person(name) {
-  // this = {}
-  this.name = name;
-}
-
-const p1 = new person("amir");
-const p2 = new person("amirmohammad");
+console.log(Person2.getFullName());
+console.log(Person1.getFullName());
