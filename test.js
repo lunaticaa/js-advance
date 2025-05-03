@@ -55,4 +55,9 @@ const person = {
   },
 };
 
-person.sayMyName();
+// person.sayMyName()
+function sayMyName() {
+  console.log(`my name is ${this.name}`);
+}
+
+sayMyName.call(person);
