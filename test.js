@@ -80,11 +80,19 @@ function Person(fname, lName) {
   this.lastName = lName;
 }
 
-const Person1 = new Person("bruce", "wayne");
-const Person2 = new Person("big", "nigga");
 Person.prototype.getFullName = function () {
   return this.firstName + " " + this.lastName;
 };
 
-console.log(Person2.getFullName());
-console.log(Person1.getFullName());
+function superHero(fname, lName) {
+  Person.call(this, fname, lName);
+  this.isSuperHero = true;
+}
+superHero.prototype.fightCrime = function () {
+  console.log("fighting crimes");
+};
+
+const Batman = new superHero();
+
+// console.log(Person2.getFullName());
+// console.log(Person1.getFullName());
