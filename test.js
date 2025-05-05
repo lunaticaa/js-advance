@@ -99,3 +99,10 @@ console.log(Batman.getFullName());
 
 // console.log(Person2.getFullName());
 // console.log(Person1.getFullName());
+
+class person {
+  constructor(fname, lName) {
+    this.firstName = fname;
+    this.lastName = lName;
+  }
+}
