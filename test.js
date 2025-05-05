@@ -113,3 +113,16 @@ class person {
 const classP1 = new person("amir", "wayne");
 
 console.log(classP1.sayMyName());
+
+class superHero extends person {
+  constructor(fname, lName) {
+    super(fname, lName);
+    this.isSuperHero = true;
+  }
+  fightcrime() {
+    console.log("fighting crime");
+  }
+}
+
+const Batman = new superHero("amir", "wayne");
+console.log(Batman.sayMyName());
