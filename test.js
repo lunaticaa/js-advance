@@ -92,7 +92,10 @@ superHero.prototype.fightCrime = function () {
   console.log("fighting crimes");
 };
 
-const Batman = new superHero();
+superHero.prototype = Object.create(Person.prototype);
+
+const Batman = new superHero("amir", "wayne");
+console.log(Batman.getFullName());
 
 // console.log(Person2.getFullName());
 // console.log(Person1.getFullName());
