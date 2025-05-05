@@ -75,27 +75,27 @@
 // sayMyName();
 
 // prototype
-function Person(fname, lName) {
-  this.firstName = fname;
-  this.lastName = lName;
-}
+// function Person(fname, lName) {
+//   this.firstName = fname;
+//   this.lastName = lName;
+// }
 
-Person.prototype.getFullName = function () {
-  return this.firstName + " " + this.lastName;
-};
+// Person.prototype.getFullName = function () {
+//   return this.firstName + " " + this.lastName;
+// };
 
-function superHero(fname, lName) {
-  Person.call(this, fname, lName);
-  this.isSuperHero = true;
-}
-superHero.prototype.fightCrime = function () {
-  console.log("fighting crimes");
-};
+// function superHero(fname, lName) {
+//   Person.call(this, fname, lName);
+//   this.isSuperHero = true;
+// }
+// superHero.prototype.fightCrime = function () {
+//   console.log("fighting crimes");
+// };
 
-superHero.prototype = Object.create(Person.prototype);
+// superHero.prototype = Object.create(Person.prototype);
 
-const Batman = new superHero("amir", "wayne");
-console.log(Batman.getFullName());
+// const Batman = new superHero("amir", "wayne");
+// console.log(Batman.getFullName());
 
 // console.log(Person2.getFullName());
 // console.log(Person1.getFullName());
@@ -105,4 +105,11 @@ class person {
     this.firstName = fname;
     this.lastName = lName;
   }
+  sayMyName() {
+    return this.firstName + " " + this.lastName;
+  }
 }
+
+const classP1 = new person("amir", "wayne");
+
+console.log(classP1.sayMyName());
