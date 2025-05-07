@@ -158,3 +158,5 @@ function* generatorsFunction() {
   yield "Hello";
   yield "world";
 }
+
+const generatorObj = generatorsFunction();
