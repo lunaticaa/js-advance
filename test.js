@@ -160,3 +160,7 @@ function* generatorsFunction() {
 }
 
 const generatorObj = generatorsFunction();
+
+for (const word of generatorObj) {
+  console.log(word);
+}
