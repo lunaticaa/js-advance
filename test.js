@@ -147,6 +147,14 @@ const obj = {
   },
 };
 
-for (const word of obj) {
-  console.log(word);
+// for (const word of obj) {
+//   console.log(word);
+// }
+// function normalFunction() {
+//   console.log("hello");
+// }
+
+function* generatorsFunction() {
+  yield "Hello";
+  yield "world";
 }
