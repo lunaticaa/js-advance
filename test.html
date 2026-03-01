@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hallooo</title>
+  </head>
+  <body //onload="printNumbers2(eval(prompt('min : ')) , eval(prompt('max : ')))">
+    <script type="text/javascript">
+      function printNumbers(min, max) {
+        for (let i = min; i <= max; i += 2) document.write(i + "<br />");
+      }
+
+      function printNumbers2(min, max) {
+        let i = min;
+        while (i <= max) {
+          document.write(i + "<br />");
+          i += 2;
+        }
+      }
+
+      function f1() {
+        let input = prompt("Enter a Number (* for finish): ");
+        let sum = 0;
+        while (input != "*") {
+          sum += eval(input);
+          input = prompt("Enter a Number (* for finish): ");
+        }
+        alert(sum);
+      }
+      f1()
+    </script>
+  </body>
+</html>
