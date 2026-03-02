@@ -30,6 +30,12 @@
           document.getElementById("text2").focus();
         }
       }
+
+      function text1_keydown() {
+        if (e.keyCode == 56) {
+          e.preventDefault();
+        }
+      }
     </script>
   </head>
   <body onload="page_load()">
@@ -38,6 +44,7 @@
       id="text1"
       onblur="text1_blur()"
       onkeyup="text1_keyup(event)"
+      onkeydown="text1_keydown(event)"
     />
     <input type="text" id="text2" onfocus="text2_focus()" />
     <span id="counter">0</span>
