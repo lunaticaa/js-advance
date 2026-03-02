@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      function page_load() {}
+
+      function text2_focus() {
+        // alert("I'm in it");
+      }
+
+      function text1_blur() {
+        // alert("I'm out");
+      }
+
+      // character counter
+      function text1_keyup(e) {
+        if (e.keyCode != 8 && e.keyCode != 13) {
+          document.getElementById("counter").innerHTML =
+            eval(document.getElementById("counter").innerHTML) + 1;
+        } else if (
+          document.getElementById("counter").innerHTML != 0 &&
+          e.keyCode == 8
+        ) {
+          document.getElementById("counter").innerHTML =
+            eval(document.getElementById("counter").innerHTML) - 1;
+        } else if (e.keyCode == 13) {
+          document.getElementById("text2").focus();
+        }
+      }
+    </script>
+  </head>
+  <body onload="page_load()">
+    <input
+      type="text"
+      id="text1"
+      onblur="text1_blur()"
+      onkeyup="text1_keyup(event)"
+    />
+    <input type="text" id="text2" onfocus="text2_focus()" />
+    <span id="counter">0</span>
+  </body>
+</html>

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>hallooo</title>
   </head>
-  <body //onload="printNumbers2(eval(prompt('min : ')) , eval(prompt('max : ')))">
+  <!-- in body we use: onload="printNumbers2(eval(prompt('min : ')) , eval(prompt('max : ')))" -->
+  <body>
     <script type="text/javascript">
       function printNumbers(min, max) {
         for (let i = min; i <= max; i += 2) document.write(i + "<br />");
@@ -28,7 +29,38 @@
         }
         alert(sum);
       }
-      f1()
+      // f1()
+
+      function f2() {
+        let i = 10;
+        do {
+          alert(i);
+          i += 1;
+        } while (i < 3);
+      }
+      f2();
+      let names = ["ali", "hassan", "hossein"];
+      function mySearch(name) {
+        for (i = 0; i < names.length; ++i) {
+          if (names[i] == name) {
+            continue;
+          } else alert(names[i]);
+        }
+      }
+
+      // mySearch("hassan");
+
+      function myObject() {
+        let text = "";
+        let person = { fname: "ali", lname: "kooni", age: 24 };
+        for (i in person) {
+          text += person[i];
+
+          alert(text);
+        }
+      }
+
+      myObject();
     </script>
   </body>
 </html>
