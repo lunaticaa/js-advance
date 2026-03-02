@@ -36,6 +36,10 @@
           e.preventDefault();
         }
       }
+
+      function text2_mouseover(txt2) {
+        txt2.value = "mouse over";
+      }
     </script>
   </head>
   <body onload="page_load()">
@@ -46,7 +50,12 @@
       onkeyup="text1_keyup(event)"
       onkeydown="text1_keydown(event)"
     />
-    <input type="text" id="text2" onfocus="text2_focus()" />
+    <input
+      type="text"
+      id="text2"
+      onfocus="text2_focus()"
+      onmouseover="text2_mouseover(this)"
+    />
     <span id="counter">0</span>
   </body>
 </html>
