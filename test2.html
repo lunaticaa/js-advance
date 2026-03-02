@@ -40,9 +40,13 @@
       function text2_mouseover(txt2) {
         txt2.value = "mouse over";
       }
+
+      function text2_mouseout(text21) {
+        text21.value = "";
+      }
     </script>
   </head>
-  <body onload="page_load()">
+  <body onload="page_load()" ondblclick="alert('hello')">
     <input
       type="text"
       id="text1"
@@ -55,6 +59,7 @@
       id="text2"
       onfocus="text2_focus()"
       onmouseover="text2_mouseover(this)"
+      onmouseout="text2_mouseout(this)"
     />
     <span id="counter">0</span>
   </body>
