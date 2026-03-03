@@ -35,11 +35,16 @@
 
         document.getElementById("img1").src = "ganf.jpg";
       }
+
+      function children() {
+        alert(document.getElementById("D1").childNodes[2]);
+      }
     </script>
   </head>
   <body>
     <input type="button" value="Click me" onclick="change()" />
-    <img class="img" src="netttt.webp" alt="interanet" id="img1" />
+    <input type="button" value="Children" onclick="children()" />
+    <!-- <img class="img" src="netttt.webp" alt="interanet" id="img1" /> -->
     <div id="D1">
       <p>P1</p>
       <p>P2</p>
