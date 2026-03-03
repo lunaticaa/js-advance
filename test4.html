@@ -37,8 +37,14 @@
       }
 
       function childs() {
-        document.getElementById("D1").childNodes[1].innerHTML =
-          "<a href='#'>hello</a>";
+        // document.getElementById("D1").childNodes[1].innerHTML =
+        //   "<a href='#'>hello</a>";
+
+        // alert(document.getElementById("D1").parentNode.parentNode.firstChild);
+
+        // nodeName
+        document.getElementById("D1").firstChild.nextSibling.innerHTML =
+          "tykjyrknkbb";
       }
     </script>
   </head>
