@@ -46,21 +46,28 @@
       }
     </script>
   </head>
-  <body onload="page_load()" ondblclick="alert('hello')">
-    <input
-      type="text"
-      id="text1"
-      onblur="text1_blur()"
-      onkeyup="text1_keyup(event)"
-      onkeydown="text1_keydown(event)"
-    />
-    <input
-      type="text"
-      id="text2"
-      onfocus="text2_focus()"
-      onmouseover="text2_mouseover(this)"
-      onmouseout="text2_mouseout(this)"
-    />
+  <body
+    onload="page_load()"
+    ondblclick="alert('hello')"
+    oncontextmenu="event.preventDefault()"
+  >
+    <form action="login.php" method="get" onsubmit="validate()">
+      <input
+        type="text"
+        id="text1"
+        onblur="text1_blur()"
+        onkeyup="text1_keyup(event)"
+        onkeydown="text1_keydown(event)"
+      />
+      <input
+        type="text"
+        id="text2"
+        onfocus="text2_focus()"
+        onmouseover="text2_mouseover(this)"
+        onmouseout="text2_mouseout(this)"
+      />
+      <input type="submit" />
+    </form>
     <span id="counter">0</span>
   </body>
 </html>
