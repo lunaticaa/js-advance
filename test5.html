@@ -15,7 +15,9 @@
         // method 2
         newLink.innerHTML = "Link 3";
         newLink.href = "#";
-        document.getElementById("D2").appendChild(newLink);
+        // document.getElementById("D2").appendChild(newLink);
+        let target = document.getElementById("D2").getElementsByTagName("a")[0];
+        document.getElementById("D2").insertBefore(newLink, target);
       }
     </script>
   </head>
