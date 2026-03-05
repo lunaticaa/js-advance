@@ -30,11 +30,17 @@
 
         parent.removeChild(child);
       }
+
+      function ClickMe() {
+        // alert(document.documentElement.innerHTML);
+        alert(document.body);
+      }
     </script>
   </head>
   <body>
     <input type="button" value="Add link" onclick="addNewLink()" />
     <input type="button" value="Remove link" onclick="RemoveLink()" />
+    <input type="button" value="Click Me" onclick="ClickMe()" />
     <div id="D2">
       <a href="#">link1</a>
       <a href="#">link2</a>
