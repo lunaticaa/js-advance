@@ -19,10 +19,18 @@
         let target = document.getElementById("D2").getElementsByTagName("a")[0];
         document.getElementById("D2").insertBefore(newLink, target);
       }
+
+      function RemoveLink() {
+        let parent = document.getElementById("D2");
+        let child = document.getElementById("D2").getElementsByTagName("a")[0];
+
+        parent.removeChild(child);
+      }
     </script>
   </head>
   <body>
     <input type="button" value="Add link" onclick="addNewLink()" />
+    <input type="button" value="Remove link" onclick="RemoveLink()" />
     <div id="D2">
       <a href="#">link1</a>
       <a href="#">link2</a>
