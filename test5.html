@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOMS</title>
     <script type="text/javascript">
-      function addNewLink(){
-        document.createElement('a')
+      function addNewLink() {
+        const newLink = document.createElement("a");
+
+        // method 1
+        let linkText = document.createTextNode("Link 3");
+        newLink.appendChild(linkText);
+
+        // method 2
+        newLink.innerHTML = "Link 3";
+        newLink.href = "#";
+        document.getElementById("D2").appendChild(newLink);
       }
     </script>
   </head>
