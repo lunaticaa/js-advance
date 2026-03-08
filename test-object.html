@@ -11,9 +11,13 @@
 
       txt = txt.concat(txt2, txt3, "gogoliiiii");
       alert(txt);
-      alert(txt.indexOf('!', 23))
+      // start at 23 charactor index
+      // alert(txt.indexOf("!", 23));
+      // start finding at end to start
+      // alert(txt.lastIndexOf("!"));
       // alert(txt.length);
       // alert(txt.constructor);
+      alert(txt.replace("a", "b"));
 
       function employee(name, job, born) {
         this.name = name;
