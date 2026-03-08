@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>objects</title>
+    <script type="text/javascript">
+      let txt = "string";
+      // alert(txt.length);
+      // alert(txt.constructor);
+
+      function employee(name, job, born) {
+        this.name = name;
+        this.job = job;
+        this.born = born;
+      }
+
+      let person1 = new employee("elizabet", "programmer", 2001);
+
+      // alert(person1.name);
+      employee.prototype.salary = null;
+
+      person1.salary = "20000$";
+
+      alert(person1.salary);
+    </script>
+  </head>
+  <body></body>
+</html>
