@@ -14,11 +14,21 @@
       }
 
       setInterval(function () {
-        alert("helppppp");
-      }, 3000);
+        timer();
+      }, 1000);
+
+      function timer() {
+        let time = new Date();
+        document.getElementById("timer").innerHTML = time.toLocaleTimeString();
+      }
+
+      // setInterval(function() {alert("helppppp")} ,3000 )
     </script>
   </head>
   <body>
     <input type="button" value="Open Window" onclick="btnOpen_click()" />
+
+    <br />
+    <span style="background-color: yellow; color: blue" id="timer"></span>
   </body>
 </html>
