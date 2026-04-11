@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>excersice 1</title>
+    <script type="text/javascript">
+      let students = new Array();
+      let count = 0;
+
+      function addStudent() {
+        let firstName = prompt("add your first name: ");
+        let lastName = prompt("add your last name: ");
+        let age = prompt("enter your age: ");
+
+        let std = { fname: firstName, lname: lastName, age: age };
+        students[count++] = std;
+      }
+      function showStudent() {
+        let table =
+          "<table slign='center' border='1px' width='300px'><tr><th>First name</th><th>Last name</th><th>Age</th></tr>";
+        for (i = 0; i < students.length; i++) {
+          table += "<tr>";
+          table += `<td>${students[i].fname}</td>`;
+          table += `<td>${students[i].lname}</td>`;
+          table += `<td>${students[i].age}</td>`;
+          table += "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("students").innerHTML = table;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="add student" id="1" onclick="addStudent()" />
+    <input type="button" value="show student" id="2" onclick="showStudent()" />
+
+    <div id="students"></div>
+  </body>
+</html>
