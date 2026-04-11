@@ -13,16 +13,36 @@
         window.open("http://www.abdollahi.us", "", "_blank");
       }
 
-      setInterval(function () {
+      const Timer = setInterval(function () {
         timer();
       }, 1000);
+
+      let timerState = true;
 
       function timer() {
         let time = new Date();
         document.getElementById("timer").innerHTML = time.toLocaleTimeString();
       }
 
+      function toggleTimer(btn) {
+        if (timerState) {
+          clearInterval(Timer);
+          btn.value = "play";
+          timerState = false;
+        } else {
+          setInterval(function () {
+            timer();
+          }, 1000);
+          btn.value = "pause";
+          timerState = true;
+        }
+      }
+
       // setInterval(function() {alert("helppppp")} ,3000 )
+
+      setTimeout(function () {
+        alert("sjnvsklbnsflkbsfb");
+      }, 3000);
     </script>
   </head>
   <body>
@@ -30,5 +50,6 @@
 
     <br />
     <span style="background-color: yellow; color: blue" id="timer"></span>
+    <input type="button" value="pause" onclick="toggleTimer(this)" />
   </body>
 </html>
