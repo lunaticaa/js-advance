@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      function fucktorial() {
+        let m = document.getElementById("txtNum1").value;
+        let f = 1;
+        for (i = m; i > 1; --i) {
+          f *= i;
+        }
+        alert(f);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" name="textbox" id="txtNum1" />
+    <button onclick="fucktorial()">Fact</button>
+  </body>
+</html>
