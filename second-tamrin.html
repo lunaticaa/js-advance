@@ -11,20 +11,55 @@
         // for (i = m; i > 1; --i) {
         //   f *= i;
         // }
-        for (let i = 2; i <= m; ++i) {
-          f *= i;
-        }
-        alert(f);
+        // for (let i = 2; i <= m; ++i) {
+        //   f *= i;
+        // }
+        // alert(f);
+        alert(recFactorial(m));
       }
       // تابع بازگشتی
       function recFactorial(k) {
         if (k == 0 || k == 1) return 1;
         else return k * recFactorial(k - 1);
       }
+
+      function BMM() {
+        let num1 = document.getElementById("txtNum2").value;
+        let num2 = document.getElementById("txtNum3").value;
+        let list1 = new Array();
+        let list2 = new Array();
+        let result = 0;
+        for (let i = 1; i <= num1; i++) {
+          let division = num1 % i;
+
+          if (division == 0) {
+            list1.push(i);
+          }
+        }
+        for (let i = 1; i <= num2; i++) {
+          let division2 = num2 % i;
+          if (division2 == 0) {
+            list2.push(i);
+          }
+        }
+
+        // let max = Math.max(...list1);
+        let set2 = new Set(list2);
+        let commonElement = list1.filter((num) => set2.has(num));
+        let BiggestNum = Math.max(...commonElement);
+        result = BiggestNum;
+        alert(result);
+      }
     </script>
   </head>
   <body>
     <input type="text" name="textbox" id="txtNum1" />
     <button onclick="fucktorial()">Fact</button>
+
+    <hr />
+
+    <input type="text" name="textbox2" id="txtNum2" />
+    <input type="text" name="textbox3" id="txtNum3" />
+    <input type="button" value="BMM" onclick="BMM()" />
   </body>
 </html>
