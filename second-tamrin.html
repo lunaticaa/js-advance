@@ -8,10 +8,18 @@
       function fucktorial() {
         let m = document.getElementById("txtNum1").value;
         let f = 1;
-        for (i = m; i > 1; --i) {
+        // for (i = m; i > 1; --i) {
+        //   f *= i;
+        // }
+        for (let i = 2; i <= m; ++i) {
           f *= i;
         }
         alert(f);
+      }
+      // تابع بازگشتی
+      function recFactorial(k) {
+        if (k == 0 || k == 1) return 1;
+        else return k * recFactorial(k - 1);
       }
     </script>
   </head>
