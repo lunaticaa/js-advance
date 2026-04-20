@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fibonatchi</title>
+    <!-- 1, 1, 2 , 3 , 5 , 8 , 13 , 21 ... -->
+    <script type="text/javascript">
+      function fibonachi() {
+        var doonbale = document.getElementById("num1").value;
+        alert(reccFib(doonbale));
+      }
+
+      function reccFib(doonbale) {
+        if (doonbale == 1 || doonbale == 2) return 1;
+        else return reccFib(doonbale - 1) + reccFib(doonbale - 2);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="num1" />
+    <button id="btn" onclick="fibonachi()">submit</button>
+  </body>
+</html>

@@ -50,6 +50,19 @@
         result = BiggestNum;
         alert(result);
       }
+
+      // second solution
+      function BMM2() {
+        let num1 = document.getElementById("txtNum2").value;
+        let num2 = document.getElementById("txtNum3").value;
+
+        do {
+          r = num1 % num2;
+          num1 = num2;
+          num2 = r;
+        } while (r != 0);
+        alert(num1);
+      }
     </script>
   </head>
   <body>
