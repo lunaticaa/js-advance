@@ -8,7 +8,14 @@
     <script type="text/javascript">
       function fibonachi() {
         var doonbale = document.getElementById("num1").value;
-        alert(reccFib(doonbale));
+        let fibs = new Array();
+        fibs[1] = 1;
+        fibs[2] = 1;
+        for (let i = 3; i < doonbale; i++) {
+          fibs[i] = fibs[i - 1] + fibs[i - 2];
+        }
+        // alert(reccFib(doonbale));
+        alert(fibs[doonbale]);
       }
 
       function reccFib(doonbale) {
