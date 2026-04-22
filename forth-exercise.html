@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOMS</title>
+    <script type="text/javascript">
+      function addPerson() {
+        let fname = document.getElementById("txtName").value;
+        let lname = document.getElementById("txtName2").value;
+
+        let person = document.createElement("tr");
+        let fnCell = document.createElement("td");
+        let fnNode = document.createTextNode(fname);
+        fnCell.appendChild(fnNode);
+        // fnCell.innerHTML = fname;
+        let lnCell = document.createElement("td");
+        let lnNode = document.createTextNode(lname);
+        lnCell.appendChild(lnNode);
+        person.appendChild(fnCell);
+        person.appendChild(lnCell);
+      }
+    </script>
+  </head>
+  <body>
+    <div>First Name <input type="text" id="txtName" /></div>
+    <div>Last Name <input type="text" id="txtName2" /></div>
+    <button onclick="addPerson()">save</button>
+    <hr />
+    <table id="tbPersons" align="center" border="1" width="300">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+    </table>
+  </body>
+</html>
