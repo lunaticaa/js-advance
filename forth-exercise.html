@@ -20,6 +20,9 @@
         let deleteLink = document.createElement("a");
         deleteLink.innerHTML = "Delete";
         deleteLink.href = "#";
+        deleteLink.onclick = function (){
+          delperson(event)
+        }
         // edit button
         let editLink = document.createElement("a");
         editLink.innerHTML = "Edit";
@@ -37,6 +40,12 @@
         person.appendChild(opCell);
 
         document.getElementById("tbPersons").appendChild(person);
+      }
+
+      function delperson(e){
+        let person = e.srcElement.parentNode.parentNode
+        document.getElementById('tbPersons').removeChild(person)
+
       }
     </script>
   </head>
