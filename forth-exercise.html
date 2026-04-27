@@ -20,13 +20,16 @@
         let deleteLink = document.createElement("a");
         deleteLink.innerHTML = "Delete";
         deleteLink.href = "#";
-        deleteLink.onclick = function (){
-          delperson(event)
-        }
-        // edit button
-        let editLink = document.createElement("a");
-        editLink.innerHTML = "Edit";
-        editLink.href = "#";
+        deleteLink.onclick = function () {
+          delperson(event);
+        };
+      }
+      // edit button
+      let editLink = document.createElement("a");
+      editLink.innerHTML = "Edit";
+      editLink.href = "#";
+      editLink.onclick = function () {
+        editperson(person);
         // space
         let sep = document.createTextNode(" | ");
         // append all
@@ -40,19 +43,28 @@
         person.appendChild(opCell);
 
         document.getElementById("tbPersons").appendChild(person);
+      };
+
+      // delete function
+      function delperson(e) {
+        let person = e.srcElement.parentNode.parentNode;
+        document.getElementById("tbPersons").removeChild(person);
       }
-
-      function delperson(e){
-        let person = e.srcElement.parentNode.parentNode
-        document.getElementById('tbPersons').removeChild(person)
-
+      // edit person
+      function editperson(person) {
+        person.style.backgroundColor = "orange";
+        document.getElementById("txtName").value =
+          person.childNodes[0].innerHTML;
+        document.getElementById("txtName2").value =
+          person.childNodes[1].innerHTML;
+          document.getElementById("btnAdd").value = "Modify"
       }
     </script>
   </head>
   <body>
     <div>First Name <input type="text" id="txtName" /></div>
     <div>Last Name <input type="text" id="txtName2" /></div>
-    <button onclick="addPerson()">save</button>
+    <button onclick="addPerson()" id="btnAdd">save</button>
     <hr />
     <table id="tbPersons" align="center" border="1" width="300">
       <tr>
