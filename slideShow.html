@@ -1,12 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slide Show</title>
-  <script type="text/javascript"></script>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide Show</title>
+    <style>
+      div#slider-imgs img {
+        width: 400px;
+        height: 300px;
+        display: none;
+      }
+
+      div#slider-imgs img:first-child {
+        display: inline !important;
+      }
+    </style>
+    <script type="text/javascript">
+      setInterval(function () {
+        slider();
+      }, 3000);
+
+      let index = 0;
+
+      function slider() {
+        let slides = document
+          .getElementById("slider-imgs")
+          .getElementsByTagName("img");
+
+        index++;
+        if ((index = slides.length)) {
+          index = 0;
+        }
+        if (index == 0) {
+          slides[slides.length - 1].style.display = "none";
+        } else {
+          slides[index - 1].style.display = "inline";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="slider-imgs">
+      <img src="imgs/1sea.jpg" />
+      <img src="imgs/2sea.jpg" />
+      <img src="imgs/3sea.jpg" />
+    </div>
+  </body>
 </html>
