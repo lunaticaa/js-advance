@@ -12,10 +12,13 @@
       }
 
       div#slider-imgs img:first-child {
-        display: inline !important;
+        display: inline;
       }
     </style>
     <script type="text/javascript">
+      setInterval(function () {
+        fading();
+      }, 100);
       setInterval(function () {
         slider();
       }, 3000);
@@ -34,8 +37,13 @@
         if (index == 0) {
           slides[slides.length - 1].style.display = "none";
         } else {
-          slides[index - 1].style.display = "inline";
+          slides[index - 1].style.display = "none";
+          slides[index].style.display = "inline";
         }
+      }
+
+      function fading() {
+        slides[index].style.opacity -= 0.03;
       }
     </script>
   </head>
