@@ -5,69 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOMS</title>
     <script type="text/javascript">
-      function addPerson() {
-        let fname = document.getElementById("txtName").value;
-        let lname = document.getElementById("txtName2").value;
+      let selectedPerson = null;
 
-        let person = document.createElement("tr");
-        let fnCell = document.createElement("td");
-        let fnNode = document.createTextNode(fname);
-        fnCell.appendChild(fnNode);
-        // fnCell.innerHTML = fname;
-        let lnCell = document.createElement("td");
-        let lnNode = document.createTextNode(lname);
-        // delete button
-        let deleteLink = document.createElement("a");
-        deleteLink.innerHTML = "Delete";
-        deleteLink.href = "#";
-        deleteLink.onclick = function () {
-          delperson(event);
-        };
+      function addPerson(btn) {
+        const fname = document.getElementById("txtName").value;
+        const lname = document.getElementById("txtName2").value;
+
+        if (btn.value === "Add") {
+          const person = document.createElement("tr");
+          person.onmouseover = function () {
+            this.style.backgroundColor = "pink";
+          };
+          person.onmouseout = function () {
+            this.style.backgroundColor = "white";
+          };
+
+          let checkCell = document.createElement("td");
+
+          checkCell.innerHTML = "<input type='checkbox' />";
+
+          const fnCell = document.createElement("td");
+          fnCell.textContent = fname;
+          person.appendChild(fnCell);
+
+          const lnCell = document.createElement("td");
+          lnCell.textContent = lname;
+          person.appendChild(lnCell);
+
+          // Delete button
+          const deleteLink = document.createElement("a");
+          deleteLink.textContent = "Delete";
+          deleteLink.href = "#";
+          deleteLink.onclick = function (event) {
+            event.preventDefault();
+            delperson(event);
+          };
+
+          // Edit button
+          const editLink = document.createElement("a");
+          editLink.textContent = "Edit";
+          editLink.href = "#";
+          editLink.onclick = function () {
+            editperson(person);
+          };
+
+          // Operations cell
+          const opCell = document.createElement("td");
+
+          opCell.appendChild(deleteLink);
+          opCell.appendChild(document.createTextNode(" | "));
+          opCell.appendChild(editLink);
+
+          person.appendChild(checkCell);
+          person.appendChild(fnCell);
+          person.appendChild(lnCell);
+          person.appendChild(opCell);
+
+          // Append the new person row to the table
+          document.getElementById("tbPersons").appendChild(person);
+        } else {
+          if (selectedPerson) {
+            selectedPerson.childNodes[0].textContent = fname;
+            selectedPerson.childNodes[1].textContent = lname;
+            selectedPerson.style.backgroundColor = "white";
+            btn.value = "Add"; // Reset the button text
+            selectedPerson = null; // Reset selected person
+          }
+        }
+
+        // Clear input fields
+        document.getElementById("txtName").value = "";
+        document.getElementById("txtName2").value = "";
       }
-      // edit button
-      let editLink = document.createElement("a");
-      editLink.innerHTML = "Edit";
-      editLink.href = "#";
-      editLink.onclick = function () {
-        editperson(person);
-        // space
-        let sep = document.createTextNode(" | ");
-        // append all
-        let opCell = document.createElement("td");
-        opCell.appendChild(deleteLink);
-        opCell.appendChild(sep);
-        opCell.appendChild(editLink);
-        lnCell.appendChild(lnNode);
-        person.appendChild(fnCell);
-        person.appendChild(lnCell);
-        person.appendChild(opCell);
 
-        document.getElementById("tbPersons").appendChild(person);
-      };
-
-      // delete function
+      // Delete function
       function delperson(e) {
-        let person = e.srcElement.parentNode.parentNode;
+        e.preventDefault();
+        const person = e.target.parentNode.parentNode; // Get the row to be deleted
         document.getElementById("tbPersons").removeChild(person);
       }
-      // edit person
+
+      // Edit person
       function editperson(person) {
+        selectedPerson = person;
         person.style.backgroundColor = "orange";
         document.getElementById("txtName").value =
-          person.childNodes[0].innerHTML;
+          person.childNodes[0].textContent;
         document.getElementById("txtName2").value =
-          person.childNodes[1].innerHTML;
-          document.getElementById("btnAdd").value = "Modify"
+          person.childNodes[1].textContent;
+        document.getElementById("btnAdd").value = "Modify";
+      }
+
+      function checkAll_click() {
+        var tbl = document.getElementById("tbPersons");
       }
     </script>
   </head>
   <body>
-    <div>First Name <input type="text" id="txtName" /></div>
-    <div>Last Name <input type="text" id="txtName2" /></div>
-    <button onclick="addPerson()" id="btnAdd">save</button>
+    <div>First Name: <input type="text" id="txtName" /></div>
+    <div>Last Name: <input type="text" id="txtName2" /></div>
+    <input type="button" onclick="addPerson(this)" id="btnAdd" value="Add" />
     <hr />
     <table id="tbPersons" align="center" border="1" width="300">
       <tr>
+        <th>
+          <input type="checkbox" id="checkAll" onclick="checkAll_click()" />
+        </th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Operations</th>
