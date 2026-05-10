@@ -16,7 +16,7 @@
       }
     </style>
     <script type="text/javascript">
-      setInterval(function () {
+      let fade = setInterval(function () {
         fading();
       }, 100);
       setInterval(function () {
@@ -29,7 +29,6 @@
         let slides = document
           .getElementById("slider-imgs")
           .getElementsByTagName("img");
-
         index++;
         if ((index = slides.length)) {
           index = 0;
@@ -39,11 +38,21 @@
         } else {
           slides[index - 1].style.display = "none";
           slides[index].style.display = "inline";
+          slides[index].style.opacity = 1;
+          clearInterval(fade);
+          fade = setInterval(function () {
+            fading();
+          });
         }
       }
 
       function fading() {
-        slides[index].style.opacity -= 0.03;
+        let slides = document
+          .getElementById("slider-imgs")
+          .getElementsByTagName("img");
+        let opacity =
+          slides[index].style.opacity >= 0 ? slides[index].style.opacity : 1;
+        slides[index].style.opacity = opacity - 0.03;
       }
     </script>
   </head>
