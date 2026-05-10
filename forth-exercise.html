@@ -22,7 +22,8 @@
 
           let checkCell = document.createElement("td");
 
-          checkCell.innerHTML = "<input type='checkbox' />";
+          checkCell.innerHTML =
+            "<input type='checkbox' onClick='chkClick(this)'/>";
 
           const fnCell = document.createElement("td");
           fnCell.textContent = fname;
@@ -65,8 +66,8 @@
           document.getElementById("tbPersons").appendChild(person);
         } else {
           if (selectedPerson) {
-            selectedPerson.childNodes[0].textContent = fname;
-            selectedPerson.childNodes[1].textContent = lname;
+            selectedPerson.childNodes[1].textContent = fname;
+            selectedPerson.childNodes[2].textContent = lname;
             selectedPerson.style.backgroundColor = "white";
             btn.value = "Add"; // Reset the button text
             selectedPerson = null; // Reset selected person
@@ -90,14 +91,44 @@
         selectedPerson = person;
         person.style.backgroundColor = "orange";
         document.getElementById("txtName").value =
-          person.childNodes[0].textContent;
-        document.getElementById("txtName2").value =
           person.childNodes[1].textContent;
+        document.getElementById("txtName2").value =
+          person.childNodes[2].textContent;
         document.getElementById("btnAdd").value = "Modify";
       }
 
-      function checkAll_click() {
+      // function checkAll_click(chkAll) {
+      //   var tbl = document.getElementById("tbPersons");
+
+      //   if (chkAll.checked) {
+      //     for (let i = 1; i <= tbl.childNodes.length; ++i) {
+      //       tbl.childNodes[i].childNodes[0].childNodes[0].checked = "checked";
+      //     }
+      //   } else {
+      //     for (let i = 1; i <= tbl.childNodes.length; ++i) {
+      //       tbl.childNodes[i].childNodes[0].childNodes[0].checked = "";
+      //     }
+      //   }
+      // }
+      function checkAll_click(chkAll) {
         var tbl = document.getElementById("tbPersons");
+        var rows = tbl.getElementsByTagName("tr");
+
+        if (chkAll.checked) {
+          for (let i = 1; i < rows.length; i++) {
+            rows[i].childNodes[0].childNodes[0].checked = "checked";
+          }
+        } else {
+          for (let i = 1; i < rows.length; i++) {
+            rows[i].childNodes[0].childNodes[0].checked = "";
+          }
+        }
+      }
+
+      function chkClick(chk) {
+        if (chk.checked) {
+          document.getElementById("checkAll").checked = "";
+        }
       }
     </script>
   </head>
@@ -109,7 +140,7 @@
     <table id="tbPersons" align="center" border="1" width="300">
       <tr>
         <th>
-          <input type="checkbox" id="checkAll" onclick="checkAll_click()" />
+          <input type="checkbox" id="checkAll" onclick="checkAll_click(this)" />
         </th>
         <th>First Name</th>
         <th>Last Name</th>
